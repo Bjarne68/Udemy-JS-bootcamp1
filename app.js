@@ -100,9 +100,9 @@ function isPangram(string) {
 //  return {value: value, suit, suit}
 // }
 
-function pick(arr){
+function pick(arr) {
   let idx = Math.floor(Math.random() * arr.length);
-  return arr[idx]
+  return arr[idx];
 }
 
 function getCard() {
@@ -121,11 +121,125 @@ function getCard() {
     "K",
     "A",
   ];
-  
-  
 
   let suits = ["ruter", "spader", "hjärter", "klöver"];
-  
- return {value: pick(values), suit: pick(suits) };
+
+  return { value: pick(values), suit: pick(suits) };
 }
 
+function doubleArr(arr) {
+  let result = [];
+  let double;
+  for (let num of arr) {
+    let double = num * 2;
+    result.push(double);
+  }
+  console.log(double);
+  return result;
+}
+
+function outer() {
+  let movie = "Amadeus";
+  function inner() {
+    let movie = "The Shining";
+    function extraInner() {
+      console.log(movie.toUpperCase());
+    }
+    extraInner();
+  }
+  inner();
+}
+
+let sum = function (x, y) {
+  return x + y;
+};
+
+function add(x, y) {
+  return x + y;
+}
+function subtract(x, y) {
+  return x - y;
+}
+
+function multiply(x, y) {
+  return x * y;
+}
+
+function divide(x, y) {
+  return x / y;
+}
+
+let operations = [add, subtract, multiply, divide];
+
+for (let func of operations) {
+  let result = func(30, 5);
+  console.log(result);
+}
+
+let thing = {
+  doSomethong: multiply,
+};
+
+function callThreeTimes(f) {
+  f();
+  f();
+  f();
+}
+
+function cry() {
+  console.log("BOO HOO");
+}
+
+function rage() {
+  console.log("I HATE EVERYTHING!");
+}
+
+function repeatNTimes(action, num) {
+  for (let i = 0; i < num; i++) {
+    action();
+  }
+}
+
+repeatNTimes(cry, 13);
+
+function pickOne(f1, f2) {
+  let rand = Math.random();
+  console.log(rand);
+  if (rand < 0.5) {
+    f1();
+  } else {
+    f2();
+  }
+}
+
+function multiplyBy(num) {
+  return function (x) {
+    return x * num;
+  };
+}
+
+const triple = multiplyBy(3);
+const double = multiplyBy(2);
+const halv = multiplyBy(0.5);
+
+function makeBetweenFunc(x, y) {
+  return function (num) {
+    return num >= x && num <= y;
+  };
+}
+
+//const isChild = makeBetweenFunc(0, 18);
+let isInNinties = makeBetweenFunc(1990, 1999);
+
+function grumpus() {
+  alert("GO AWAY!");
+}
+
+setTimeout(function () {
+  alert("WELCOME!!");
+}, 5000);
+
+let  btn = document.querySelector('button')
+btn.addEventListener('click', function(){
+  alert("WHY DID YOU CLICK ME??")
+})
